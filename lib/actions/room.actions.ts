@@ -69,3 +69,13 @@ export const updateRoom = async (roomId: string, title: string) => {
     console.log(`Error updating room: ${error}`);
   }
 };
+
+export const getRooms = async (email: string) => {
+  try {
+    const rooms = await liveblocks.getRooms({ userId: email });
+
+    return parseStringify(rooms);
+  } catch (error) {
+    console.log(`Error fetching rooms: ${error}`);
+  }
+};
