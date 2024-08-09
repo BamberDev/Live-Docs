@@ -3,7 +3,7 @@
 import { nanoid } from "nanoid";
 import { liveblocks } from "../liveblocks";
 import { revalidatePath } from "next/cache";
-import { parseStringify } from "../utils";
+import { getAccessType, parseStringify } from "../utils";
 
 export const createRoom = async ({ userId, email }: CreateDocumentParams) => {
   const roomId = nanoid();
@@ -22,7 +22,7 @@ export const createRoom = async ({ userId, email }: CreateDocumentParams) => {
     const room = await liveblocks.createRoom(roomId, {
       metadata,
       usersAccesses,
-      defaultAccesses: ["room:write"],
+      defaultAccesses: [],
     });
 
     revalidatePath("/");
@@ -77,5 +77,57 @@ export const getRooms = async (email: string) => {
     return parseStringify(rooms);
   } catch (error) {
     console.log(`Error fetching rooms: ${error}`);
+  }
+};
+
+export const updateRoomAccess = async ({
+  roomId,
+  email,
+  userType,
+  updatedBy,
+}: ShareDocumentParams) => {
+  try {
+    const usersAccesses: RoomAccesses = {
+      [email]: getAccessType(userType) as AccessType,
+    };
+
+    const updatedRoom = await liveblocks.updateRoom(roomId, {
+      usersAccesses,
+    });
+    if (updatedRoom) {
+      // notify user
+    }
+
+    revalidatePath(`/documents/${roomId}`);
+    return parseStringify(updatedRoom);
+  } catch (error) {
+    console.log(`Error updating room access: ${error}`);
+  }
+};
+
+export const removeCollaborator = async ({
+  roomId,
+  email,
+}: {
+  roomId: string;
+  email: string;
+}) => {
+  try {
+    const room = await liveblocks.getRoom(roomId);
+
+    if (room.metadata.email === email) {
+      throw new Error("You can't remove yourself from the document");
+    }
+
+    const updatedRoom = await liveblocks.updateRoom(roomId, {
+      usersAccesses: {
+        [email]: null,
+      },
+    });
+
+    revalidatePath(`/documents/${roomId}`);
+    return parseStringify(updatedRoom);
+  } catch (error) {
+    console.log(`Error removing collaborator: ${error}`);
   }
 };
