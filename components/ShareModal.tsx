@@ -25,6 +25,7 @@ const ShareModal = ({
   currentUserType,
 }: ShareDocumentDialogProps) => {
   const user = useSelf();
+  const isOwner = user.info.id === creatorId;
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -47,7 +48,7 @@ const ShareModal = ({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
-        {currentUserType === "editor" && (
+        {isOwner && (
           <Button className="gradient-blue flex h-9 gap-1 px-4">
             <Image
               src="/assets/icons/share.svg"
