@@ -22,7 +22,6 @@ const ShareModal = ({
   roomId,
   collaborators,
   creatorId,
-  currentUserType,
 }: ShareDocumentDialogProps) => {
   const user = useSelf();
   const isOwner = user.info.id === creatorId;
@@ -45,21 +44,23 @@ const ShareModal = ({
     setLoading(false);
   };
 
+  if (!isOwner) {
+    return null;
+  }
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>
-        {isOwner && (
-          <Button className="gradient-blue flex h-9 gap-1 px-4">
-            <Image
-              src="/assets/icons/share.svg"
-              alt="share-icon"
-              width={20}
-              height={20}
-              className="min-w-4 md:size-5"
-            />
-            <p className="mr-1 hidden sm:block">Share</p>
-          </Button>
-        )}
+      <DialogTrigger asChild>
+        <Button className="gradient-blue flex h-9 gap-1 px-4">
+          <Image
+            src="/assets/icons/share.svg"
+            alt="share-icon"
+            width={20}
+            height={20}
+            className="min-w-4 md:size-5"
+          />
+          <p className="mr-1 hidden sm:block">Share</p>
+        </Button>
       </DialogTrigger>
       <DialogContent className="shad-dialog">
         <DialogHeader>

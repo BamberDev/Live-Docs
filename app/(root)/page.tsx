@@ -61,7 +61,9 @@ const Home = async () => {
                     </p>
                   </div>
                 </Link>
-                <DeleteModal roomId={id} />
+                {metadata.creatorId === clerkUser.id && (
+                  <DeleteModal roomId={id} />
+                )}
               </li>
             ))}
           </ul>

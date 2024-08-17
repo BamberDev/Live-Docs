@@ -47,7 +47,6 @@ declare type ShareDocumentDialogProps = {
   roomId: string;
   collaborators: User[];
   creatorId: string;
-  currentUserType: UserType;
 };
 
 declare type HeaderProps = {
