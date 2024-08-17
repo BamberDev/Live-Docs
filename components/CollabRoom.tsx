@@ -118,7 +118,6 @@ const CollabRoom = ({
                 roomId={roomId}
                 collaborators={users}
                 creatorId={roomMetadata.creatorId}
-                currentUserType={currentUserType}
               />
               <SignedOut>
                 <SignInButton />
@@ -128,7 +127,11 @@ const CollabRoom = ({
               </SignedIn>
             </div>
           </Header>
-          <Editor roomId={roomId} currentUserType={currentUserType} />
+          <Editor
+            roomId={roomId}
+            currentUserType={currentUserType}
+            creatorId={roomMetadata.creatorId}
+          />
         </div>
       </ClientSideSuspense>
     </RoomProvider>
