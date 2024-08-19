@@ -21,42 +21,24 @@ export const getAccessType = (userType: UserType) => {
 };
 
 export const dateConverter = (timestamp: string): string => {
-  const timestampNum = Math.round(new Date(timestamp).getTime() / 1000);
-  const date: Date = new Date(timestampNum * 1000);
-  const now: Date = new Date();
+  const date = new Date(timestamp);
 
-  const diff: number = now.getTime() - date.getTime();
-  const diffInSeconds: number = diff / 1000;
-  const diffInMinutes: number = diffInSeconds / 60;
-  const diffInHours: number = diffInMinutes / 60;
-  const diffInDays: number = diffInHours / 24;
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const year = date.getUTCFullYear();
 
-  switch (true) {
-    case diffInDays > 7:
-      return `${Math.floor(diffInDays / 7)} weeks ago`;
-    case diffInDays >= 1 && diffInDays <= 7:
-      return `${Math.floor(diffInDays)} days ago`;
-    case diffInHours >= 1:
-      return `${Math.floor(diffInHours)} hours ago`;
-    case diffInMinutes >= 1:
-      return `${Math.floor(diffInMinutes)} minutes ago`;
-    default:
-      return "Just now";
-  }
+  return `${day}-${month}-${year}`;
 };
 
-// Function to generate a random color in hex format, excluding specified colors
 export function getRandomColor() {
-  const avoidColors = ["#000000", "#FFFFFF", "#8B4513"]; // Black, White, Brown in hex format
+  const avoidColors = ["#000000", "#FFFFFF", "#8B4513"];
 
   let randomColor;
   do {
-    // Generate random RGB values
-    const r = Math.floor(Math.random() * 256); // Random number between 0-255
+    const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
 
-    // Convert RGB to hex format
     randomColor = `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
   } while (avoidColors.includes(randomColor));
 
@@ -64,25 +46,25 @@ export function getRandomColor() {
 }
 
 export const brightColors = [
-  "#2E8B57", // Darker Neon Green
-  "#FF6EB4", // Darker Neon Pink
-  "#00CDCD", // Darker Cyan
-  "#FF00FF", // Darker Neon Magenta
-  "#FF007F", // Darker Bright Pink
-  "#FFD700", // Darker Neon Yellow
-  "#00CED1", // Darker Neon Mint Green
-  "#FF1493", // Darker Neon Red
-  "#00CED1", // Darker Bright Aqua
-  "#FF7F50", // Darker Neon Coral
-  "#9ACD32", // Darker Neon Lime
-  "#FFA500", // Darker Neon Orange
-  "#32CD32", // Darker Neon Chartreuse
-  "#ADFF2F", // Darker Neon Yellow Green
-  "#DB7093", // Darker Neon Fuchsia
-  "#00FF7F", // Darker Spring Green
-  "#FFD700", // Darker Electric Lime
-  "#FF007F", // Darker Bright Magenta
-  "#FF6347", // Darker Neon Vermilion
+  "#2E8B57",
+  "#FF6EB4",
+  "#00CDCD",
+  "#FF00FF",
+  "#FF007F",
+  "#FFD700",
+  "#00CED1",
+  "#FF1493",
+  "#00CED1",
+  "#FF7F50",
+  "#9ACD32",
+  "#FFA500",
+  "#32CD32",
+  "#ADFF2F",
+  "#DB7093",
+  "#00FF7F",
+  "#FFD700",
+  "#FF007F",
+  "#FF6347",
 ];
 
 export function getUserColor(userId: string) {
