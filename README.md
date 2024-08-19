@@ -1,37 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Live Docs
+
+## Demo
+
+[Live Demo](https://live-docs-coral-mu.vercel.app/)
+
+**Test Account**:
+You can use the following test account credentials:
+
+- **Email**: `test+clerk_test@example.com`
+- **Password**: `Testtest`
+
+Live Docs is a real-time collaborative document editing application built with cutting-edge web technologies. This application allows multiple users to collaborate on documents simultaneously, with live updates and seamless user management.
+
+## Features
+
+- **User Authentication**: Secure authentication and user management powered by [Clerk](https://clerk.dev/).
+- **Real-time Collaboration**: Multiple users can edit the same document in real time.
+- **Responsive UI**: Modern and responsive user interface built with [Tailwind CSS](https://tailwindcss.com/) and [Shadcn/iu](https://ui.shadcn.com/).
+- **Type Safety**: TypeScript is used throughout the app for type safety and better developer experience.
+- **Scalable Architecture**: Built on [Next.js](https://nextjs.org/), allowing for server-side rendering, API routes, and static site generation.
+- **State Management**: Efficient and easy-to-use state management with [Liveblocks](https://liveblocks.io/) for real-time document collaboration.
 
 ## Getting Started
 
-First, run the development server:
+### How to Use the Application
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Test Account**:
+You can use the following test account credentials:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Email**: `test+clerk_test@example.com`
+- **Password**: `Testtest`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Sign Up / Log In**:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   - Visit the [Website](https://live-docs-coral-mu.vercel.app/).
+   - Click on the **Sign Up** or **Log In** button.
+   - Complete the sign-up process or log in with your existing credentials using Clerk's authentication.
 
-## Learn More
+2. **Create a New Document**:
 
-To learn more about Next.js, take a look at the following resources:
+   - Once logged in, navigate to the dashboard.
+   - Click on the **Create New Document** button.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Start Editing**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   - You will be redirected to the document editor.
+   - Start typing in the editor; changes are saved automatically in real time.
+   - Use formatting options to style your text (e.g., bold, italic, headings).
 
-## Deploy on Vercel
+4. **Collaborate with Others**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   - To share the document with others, click on the **Share** button.
+   - Multiple users can edit the document simultaneously, and you will see their changes in real time.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# Live-Docs
+5. **View and Manage Documents**:
+
+   - Return to your dashboard to view all your documents.
+   - Click on any document to continue editing.
+   - You can delete documents from the dashboard.
+
+6. **Log Out**:
+   - Click on your profile picture or username in the top right corner.
+   - Select **Sign Out** from the dropdown menu to end your session.
+
+## Tech Stack
+
+- **[Next.js](https://nextjs.org/)**: React framework for production-grade apps with server-side rendering and API routes.
+- **[TypeScript](https://www.typescriptlang.org/)**: Strongly typed programming language that builds on JavaScript.
+- **[Liveblocks](https://liveblocks.io/)**: Tools for building live and collaborative experiences.
+- **[Clerk](https://clerk.dev/)**: User authentication and management.
+- **[Shadcn](https://ui.shadcn.com/)**: A modern design system built with Tailwind CSS.
+- **[Tailwind CSS](https://tailwindcss.com/)**: Utility-first CSS framework for rapidly building custom designs.
+
+---
+
+Happy writing! If you have any questions, feedback, or issues, please don't hesitate to reach out.
