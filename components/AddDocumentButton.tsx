@@ -32,7 +32,7 @@ const AddDocumentButton = ({ userId, email }: AddDocumentBtnProps) => {
         width={24}
         height={24}
       />
-      <p className="hidden sm:block">Start a new document</p>
+      <p className="hidden sm:block">Create new document</p>
     </Button>
   );
 };
