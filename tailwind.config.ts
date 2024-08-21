@@ -20,6 +20,9 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        xs: "360px",
+      },
       colors: {
         blue: {
           100: "#B4C6EE",
