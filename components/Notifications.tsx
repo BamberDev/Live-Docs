@@ -49,9 +49,7 @@ const Notifications = () => {
         >
           <InboxNotificationList>
             {unreadNotifications.length <= 0 && (
-              <p className="py-2 text-center text-dark-500">
-                No notifications yet
-              </p>
+              <p className="py-2 text-center">No notifications yet</p>
             )}
 
             {unreadNotifications.length > 0 &&
@@ -59,7 +57,7 @@ const Notifications = () => {
                 <InboxNotification
                   key={notification.id}
                   inboxNotification={notification}
-                  className="bg-dark-200 text-white"
+                  className="bg-dark-200 text-white rounded-lg flex flex-col my-2"
                   href={`/documents/${notification.roomId}`}
                   showActions={false}
                   kinds={{

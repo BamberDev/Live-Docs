@@ -16,10 +16,13 @@ const config = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
-        xs: "360px",
+        xs: "375px",
       },
     },
     extend: {
+      screens: {
+        xs: "375px",
+      },
       colors: {
         blue: {
           100: "#B4C6EE",
@@ -48,10 +51,6 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-      },
-      backgroundImage: {
-        doc: "url(/assets/images/doc.png)",
-        modal: "url(/assets/images/modal.png)",
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
