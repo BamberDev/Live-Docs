@@ -51,7 +51,7 @@
   }
 
   .shad-dialog {
-    @apply w-full max-w-[400px] rounded-xl border-none bg-doc bg-cover px-5 py-7 shadow-xl sm:min-w-[500px] !important;
+    @apply w-full max-w-[310px] xs:max-w-[365px] sm:min-w-[500px] rounded-xl border-none bg-[#1f2a3e] px-5 py-7 shadow-xl !important;
   }
 
   .shad-dialog button {
@@ -71,7 +71,7 @@
   }
 
   .shad-popover {
-    @apply w-[460px] border-none bg-dark-200 shadow-lg !important;
+    @apply w-[98vw] sm:w-[500px] border-none mx-1 sm:mx-0 bg-[#1f2a3e] shadow-lg !important;
   }
 
   .floating-toolbar {
@@ -103,7 +103,7 @@
   }
 
   .document-list-item {
-    @apply flex items-center justify-between gap-4 rounded-lg bg-doc bg-cover p-5 shadow-xl;
+    @apply flex items-center justify-between gap-4 rounded-lg bg-[#1f2a3e] p-5 shadow-xl;
   }
 
   .document-list-empty {
@@ -255,6 +255,19 @@
 
 .lb-inbox-notification-list-item:where(:not(:last-of-type)) {
   border-bottom: none;
+}
+
+.lb-inbox-notification-header {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.lb-inbox-notification-details {
+  position: absolute;
+  top: -45px;
+  right: 0;
 }
 
 .lb-comment-body,
