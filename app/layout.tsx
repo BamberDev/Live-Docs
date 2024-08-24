@@ -15,6 +15,22 @@ export const metadata = {
   title: "Live Docs",
   description:
     "Collaborate with your friends and share your knowledge with others.",
+  keywords: [
+    "Live Docs",
+    "collaboration",
+    "real-time editing",
+    "document sharing",
+    "knowledge sharing",
+    "teamwork",
+  ],
+  author: "Kevin Cieślik",
+  applicationName: "Live Docs",
+  generator: "Next.js",
+  themeColor: "#09111f",
+  viewport: "width=device-width, initial-scale=1",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
