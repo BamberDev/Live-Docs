@@ -4,6 +4,12 @@ import { getClerkUsers } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
+export const metadata = {
+  title: "Document",
+  description: "Collaborate with others on your documents in real-time.",
+  keywords: ["document", "collaboration", "real-time editing"],
+};
+
 const Document = async ({ params: { id } }: SearchParamProps) => {
   const clerkUser = await currentUser();
 
