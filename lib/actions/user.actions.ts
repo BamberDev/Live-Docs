@@ -6,7 +6,8 @@ import { liveblocks } from "../liveblocks";
 
 export const getClerkUsers = async ({ userIds }: { userIds: string[] }) => {
   try {
-    const { data } = await clerkClient.users.getUserList({
+    const client = await clerkClient();
+    const { data } = await client.users.getUserList({
       emailAddress: userIds,
     });
 
@@ -18,7 +19,7 @@ export const getClerkUsers = async ({ userIds }: { userIds: string[] }) => {
     }));
 
     const sortedUsers = userIds.map((email) =>
-      users.find((user) => user.email === email)
+      users.find((user) => user.email === email),
     );
 
     return parseStringify(sortedUsers);
@@ -40,13 +41,13 @@ export const getDocumentUsers = async ({
     const room = await liveblocks.getRoom(roomId);
 
     const users = Object.keys(room.usersAccesses).filter(
-      (email) => email !== currentUser
+      (email) => email !== currentUser,
     );
 
     if (text.length) {
       const lowerCaseText = text.toLowerCase();
       const filteredUsers = users.filter((email: string) =>
-        email.toLowerCase().includes(lowerCaseText)
+        email.toLowerCase().includes(lowerCaseText),
       );
 
       return parseStringify(filteredUsers);
